@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://default_theme.tres" type="Theme" id=1]
+
+[sub_resource type="Gradient" id=1]
+
+[sub_resource type="GradientTexture2D" id=2]
+flags = 3
+gradient = SubResource( 1 )
+width = 84
+height = 48
+fill_from = Vector2( 1, 0 )
+fill_to = Vector2( 0, 0 )
+
+[node name="TitleScene" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 42, 24 )
+texture = SubResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_text = "Hello!
+This is a test :)"
+text = "Hello!
+This is a test :)"
