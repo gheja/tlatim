@@ -1,0 +1,4 @@
+extends Node
+
+signal player_action_first
+signal player_action_second
