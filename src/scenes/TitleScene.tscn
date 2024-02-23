@@ -133,7 +133,6 @@ frame = 49
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 26, 31 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="."]
@@ -155,5 +154,4 @@ frame = 2
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
 position = Vector2( 32, 17 )
 frames = SubResource( 14 )
-frame = 1
 playing = true

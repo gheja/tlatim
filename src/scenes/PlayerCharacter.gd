@@ -61,6 +61,22 @@ func handle_face_animation():
 	elif a < 120:
 		face_sprite.frame = 3
 
+func increase_energy():
+	if frame % 3 != 0:
+		return
+	
+	if GameState.energy < GameState.energy_max:
+		GameState.energy += 1
+
+func reduce_timer():
+	if frame % 60 != 0:
+		return
+	
+	if GameState.time <= 0:
+		return
+	
+	GameState.time -= 1
+
 func _ready():
 	GameState.state = GameState.GAME_STATE_PLAYING
 
@@ -71,6 +87,8 @@ func _process(_delta):
 	
 	if GameState.state == GameState.GAME_STATE_PLAYING:
 		handle_action_buttons()
+		reduce_timer()
+		increase_energy()
 	
 	handle_face_animation()
 	

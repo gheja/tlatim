@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/PlayerCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/LevelBase.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/SnowmanObject.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/PersonSmallObject.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/PersonBigObject.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/MainOverlay.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Gradient" id=1]
 interpolation_mode = 1
@@ -52,3 +53,7 @@ position = Vector2( 41, 42 )
 
 [node name="PersonSmallObject" parent="." instance=ExtResource( 6 )]
 position = Vector2( 49, 42 )
+
+[node name="MainOverlay" parent="." instance=ExtResource( 8 )]
+margin_right = 0.0
+margin_bottom = 0.0

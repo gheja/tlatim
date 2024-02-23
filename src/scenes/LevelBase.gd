@@ -35,18 +35,49 @@ func check_win_conditions():
 		if not obj.is_complete():
 			return false
 	
+	show_popup_text("Level complete!")
 	return true
+
+func show_popup_text(s):
+	var tmp = preload("res://scenes/PopupTextOverlay.tscn").instance()
+	tmp.set_text(s)
+	self.add_child(tmp)
+
+func check_lose_conditions():
+	if GameState.time == 0:
+		show_popup_text("Time is up!")
+		return true
+	
+	return false
 
 func check_win_lose_conditions():
 	if check_win_conditions():
 		GameState.state = GameState.GAME_STATE_WON
 		Signals.emit_signal("game_won")
+		return
+	
+	if check_lose_conditions():
+		GameState.state = GameState.GAME_STATE_LOST
+		Signals.emit_signal("game_lost")
+		return
 
 func on_object_completed():
-	check_win_lose_conditions()
+# 	check_win_lose_conditions()
+	pass
+
+func reset_game():
+	GameState.energy = GameState.energy_max
+	GameState.time = GameState.time_max
 
 func _ready():
 	Signals.connect("player_action_first", self, "on_player_action", [ 1 ])
 	Signals.connect("player_action_second", self, "on_player_action", [ 2 ])
 	Signals.connect("object_completed", self, "on_object_completed")
 	init_dust()
+	reset_game()
+
+func _process(_delta):
+	if GameState.state != GameState.GAME_STATE_PLAYING:
+		return
+	
+	check_win_lose_conditions()
