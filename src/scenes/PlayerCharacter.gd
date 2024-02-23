@@ -44,6 +44,10 @@ func handle_action_buttons():
 		last_action_second_frame = null
 
 func handle_face_animation():
+	if GameState.state == GameState.GAME_STATE_WON:
+		face_sprite.frame = 4
+		return
+	
 	# the second action is active
 	if last_action_second_frame != null:
 		face_sprite.frame = 4
@@ -57,12 +61,17 @@ func handle_face_animation():
 	elif a < 120:
 		face_sprite.frame = 3
 
+func _ready():
+	GameState.state = GameState.GAME_STATE_PLAYING
+
 func _process(_delta):
 	frame += 1
 	
 	handle_direction_buttons()
 	
-	handle_action_buttons()
+	if GameState.state == GameState.GAME_STATE_PLAYING:
+		handle_action_buttons()
+	
 	handle_face_animation()
 	
 

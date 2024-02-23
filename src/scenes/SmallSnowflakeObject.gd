@@ -4,12 +4,15 @@ var pos_x = 0.0
 var pos_y = 0.0
 var speed_y = 1.0
 
-func _ready():
+func move_to_player():
 	var player = Lib.get_player_object()
 	
 	pos_x = player.position.x
 	pos_y = player.position.y + 6
 	speed_y = 0.4
+
+func _ready():
+	pass
 
 func _process(_delta):
 	pos_x += GameState.wind
