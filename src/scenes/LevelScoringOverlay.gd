@@ -8,6 +8,7 @@ var tmp_score = 0
 var total_score = 0
 
 var phase = 0
+var finished = false
 
 func _process(_delta):
 	$Foreground/RightText.bbcode_text = "[right]" + str(val1) + "\n" + str(val2) + "\n" + str(val3) + "\n[/right]" 
@@ -99,5 +100,13 @@ func _on_PhaseStartTimer_timeout():
 	$Timer.start()
 
 func _on_ScoringCompletedTimer_timeout():
+	finished = true
 	$AnimationPlayer.play("continue")
 	Signals.emit_signal("scoring_completed")
+
+func _unhandled_input(event):
+	if not finished:
+		return
+	
+	if event.is_action_pressed("action_first") or event.is_action_pressed("action_second"):
+		Signals.emit_signal("switch_to_level_selection")
