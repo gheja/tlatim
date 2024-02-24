@@ -122,8 +122,9 @@ theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Background" type="Control" parent="."]
+margin_top = -47.0
 margin_right = 84.0
-margin_bottom = 48.0
+margin_bottom = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
 margin_left = 16.0

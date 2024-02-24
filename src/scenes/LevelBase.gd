@@ -103,7 +103,14 @@ func update_camera():
 	while camera_obj.position.x < player_obj.position.x - 68:
 		camera_obj.position.x += 1
 
+func randomize_background():
+	randomize()
+	$BackgroundSprite2.position.x += randi() % 300 - 150
+	$BackgroundSprite2.flip_h = (randi() % 2 == 1)
+
 func _ready():
+	randomize_background()
+	
 	$HorizontalBounds.hide()
 	$BackgroundSprite.hide()
 	Lib.silence(Signals.connect("player_action_first", self, "on_player_action", [ 1 ]))
@@ -121,3 +128,4 @@ func _process(_delta):
 func _on_ScoringStartTimer_timeout():
 	var tmp = preload("res://scenes/LevelScoringOverlay.tscn").instance()
 	$CameraContainer.add_child(tmp)
+	tmp.start(GameState.time, GameState.energy, get_tree().get_nodes_in_group("persons").size())

@@ -14,6 +14,9 @@ func _process(_delta):
 	
 	if tmp_score > 0:
 		$Foreground/PlusText.bbcode_text = "[right]+" + str(tmp_score) + "[/right]"
+# # negative values are not implemented
+#	elif tmp_score < 0:
+#		$Foreground/PlusText.bbcode_text = "[right]" + str(tmp_score) + "[/right]"
 	else:
 		$Foreground/PlusText.bbcode_text = ""
 	
