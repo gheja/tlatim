@@ -1,5 +1,6 @@
 extends Node2D
 
+export var level_key = "unknown"
 export var time_max = 30
 export var energy_max = 100
 export var wind = 0.33
@@ -85,10 +86,14 @@ func on_object_completed():
 	pass
 
 func reset_game():
+	if level_key == "unknown":
+		push_error("Level key is unknown!")
+	
 	GameState.time_max = time_max
 	GameState.wind = wind
 	GameState.energy = GameState.energy_max
 	GameState.time = GameState.time_max
+	GameState.current_level_key = level_key
 
 func update_camera():
 #	while camera_obj.position.x - player_obj.position.x > 24:

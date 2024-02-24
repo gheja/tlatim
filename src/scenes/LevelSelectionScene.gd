@@ -3,9 +3,9 @@ extends Control
 var level_index = 0
 
 var level_list = [
-	[ "Tutorial 1", "", "res://scenes/LevelTutorial1.tscn" ],
-	[ "Tutorial 2", "", "res://scenes/LevelTutorial2.tscn" ],
-	[ "Level 1", "", "res://scenes/Level1.tscn" ],
+	[ "Tutorial 1", "tutorial1", "res://scenes/LevelTutorial1.tscn" ],
+	[ "Tutorial 2", "tutorial2", "res://scenes/LevelTutorial2.tscn" ],
+	[ "Level 1", "level1", "res://scenes/Level1.tscn" ],
 	[ "Level 2", "", "res://scenes/Level1.tscn" ],
 	[ "Level 3", "", "res://scenes/Level1.tscn" ],
 ]
@@ -13,6 +13,7 @@ var level_list = [
 func _ready():
 	var s
 	var t
+	var a
 	
 	$Control/ArrowSprite.rect_position.y = 12
 	
@@ -21,7 +22,13 @@ func _ready():
 	
 	for level in level_list:
 		s += level[0] + "\n"
-		t += "-\n"
+		
+		a = GameConfig.get_score(level[1])
+		
+		if not a:
+			t += "-\n"
+		else:
+			t += str(a) + "\n"
 	
 	t += "[/right]"
 	

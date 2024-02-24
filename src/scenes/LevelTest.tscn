@@ -10,6 +10,7 @@
 [node name="LevelTest" type="Node2D"]
 
 [node name="LevelBase" parent="." instance=ExtResource( 6 )]
+level_key = "test"
 wind = 0.1
 
 [node name="PersonBigObject" parent="LevelBase/LevelObjects" index="0" instance=ExtResource( 2 )]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/LevelScoringOverlay.gd" type="Script" id=2]
@@ -113,6 +113,52 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "blink"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("HighScore:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/path = NodePath("HighScore:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("HighScore:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="LevelScoringOverlay" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -209,22 +255,6 @@ bbcode_text = "[right]+1234[/right]"
 text = "+1234"
 scroll_active = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "slide"
-anims/continue = SubResource( 3 )
-anims/idle = SubResource( 1 )
-anims/slide = SubResource( 2 )
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.05
-
-[node name="PhaseStartTimer" type="Timer" parent="."]
-wait_time = 0.25
-one_shot = true
-
-[node name="ScoringCompletedTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="Foreground2" type="Control" parent="."]
 margin_right = 89.0
 margin_bottom = 51.0
@@ -239,6 +269,50 @@ bbcode_enabled = true
 bbcode_text = "Continue [X]"
 text = "Continue [X]"
 scroll_active = false
+
+[node name="HighScore" type="Control" parent="."]
+margin_right = 84.0
+margin_bottom = 48.0
+
+[node name="ColorRect" type="ColorRect" parent="HighScore"]
+margin_left = 16.0
+margin_top = 25.0
+margin_right = 66.0
+margin_bottom = 34.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="HighScoreText" type="RichTextLabel" parent="HighScore"]
+margin_left = 17.0
+margin_top = 26.0
+margin_right = 65.0
+margin_bottom = 33.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]! Highscore ![/center]"
+text = "! Highscore !"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "slide"
+anims/continue = SubResource( 3 )
+anims/idle = SubResource( 1 )
+anims/slide = SubResource( 2 )
+
+[node name="HighScoreAnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+anims/blink = SubResource( 4 )
+anims/default = SubResource( 5 )
+anims/idle = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="PhaseStartTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="ScoringCompletedTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="PhaseStartTimer" to="." method="_on_PhaseStartTimer_timeout"]

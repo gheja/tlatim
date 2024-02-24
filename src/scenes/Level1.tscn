@@ -7,6 +7,7 @@
 [node name="Level1" type="Node2D"]
 
 [node name="LevelBase" parent="." instance=ExtResource( 6 )]
+level_key = "level1"
 wind = -0.33
 
 [node name="PlayerCharacter" parent="LevelBase" index="2"]

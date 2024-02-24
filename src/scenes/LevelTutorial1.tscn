@@ -6,9 +6,10 @@
 [node name="LevelTutorial1" type="Node2D"]
 
 [node name="LevelBase" parent="." instance=ExtResource( 6 )]
+level_key = "tutorial1"
 wind = 0.1
 
-[node name="PlayerCharacter" parent="LevelBase" index="1"]
+[node name="PlayerCharacter" parent="LevelBase" index="2"]
 position = Vector2( 46, 10 )
 
 [node name="TreeObject" parent="LevelBase/LevelObjects" index="0" instance=ExtResource( 3 )]

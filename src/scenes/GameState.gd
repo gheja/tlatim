@@ -8,6 +8,7 @@ const GAME_STATE_LOST = 4
 
 var state = GAME_STATE_UNKNOWN
 var transition_active = false
+var current_level_key = "unknown"
 
 var wind = -0.33
 

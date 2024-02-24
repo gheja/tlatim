@@ -27,6 +27,7 @@ func next_phase():
 	$Timer.stop()
 	
 	if phase == 6:
+		check_and_handle_high_score()
 		$ScoringCompletedTimer.start()
 		return
 	
@@ -85,6 +86,19 @@ func _on_Timer_timeout():
 			next_phase()
 		else:
 			step_total_score(25)
+
+func check_and_handle_high_score():
+	var last_score = GameConfig.get_score(GameState.current_level_key)
+	
+	if not last_score:
+		last_score = 0
+	
+	if last_score < total_score:
+		# high score!
+		# AudioManager.play_sfx(xxx)
+		$HighScoreAnimationPlayer.play("blink")
+		
+		GameConfig.set_score(GameState.current_level_key, total_score)
 
 func start(val_time, val_energy, val_joy):
 	# won't really start as the AnimationPlayer starts the counting, this will
