@@ -9,7 +9,7 @@
 [node name="LevelBase" parent="." instance=ExtResource( 6 )]
 wind = -0.25
 
-[node name="PlayerCharacter" parent="LevelBase" index="1"]
+[node name="PlayerCharacter" parent="LevelBase" index="2"]
 position = Vector2( 46, 10 )
 
 [node name="TreeObject" parent="LevelBase/LevelObjects" index="0" instance=ExtResource( 3 )]
@@ -21,7 +21,7 @@ position = Vector2( 45, 37 )
 [node name="HouseObject" parent="LevelBase/LevelObjects" index="2" instance=ExtResource( 1 )]
 position = Vector2( 84, 34 )
 
-[node name="HorizontalBounds" parent="LevelBase" index="3"]
+[node name="HorizontalBounds" parent="LevelBase" index="4"]
 position = Vector2( 63, 0 )
 scale = Vector2( 90, 1 )
 

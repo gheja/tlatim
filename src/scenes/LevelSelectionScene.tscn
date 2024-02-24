@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/LevelSelectionScene.gd" type="Script" id=2]
+
+[node name="LevelSelectionScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -756.0
+margin_bottom = -432.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 84.0
+margin_bottom = 48.0
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ArrowSprite" type="RichTextLabel" parent="Control"]
+margin_left = 1.0
+margin_top = 12.0
+margin_right = 7.0
+margin_bottom = 24.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = ">"
+text = ">"
+scroll_active = false
+
+[node name="LevelListWindow" type="Control" parent="Control"]
+margin_left = 7.0
+margin_top = -4.0
+margin_right = 84.0
+margin_bottom = 36.0
+
+[node name="LevelNameLabel" type="RichTextLabel" parent="Control/LevelListWindow"]
+margin_right = 45.0
+margin_bottom = 51.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = " Tutorial  1
+ Tutorial  2
+ Level  1
+ Level  2
+ Level  3
+ Level  4"
+text = " Tutorial  1
+ Tutorial  2
+ Level  1
+ Level  2
+ Level  3
+ Level  4"
+
+[node name="PointsLabel" type="RichTextLabel" parent="Control/LevelListWindow"]
+margin_left = 32.0
+margin_right = 77.0
+margin_bottom = 51.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[right]-
+-
+312
+-
+-
+-[/right]"
+text = "-
+-
+312
+-
+-
+-"
+
+[node name="Control2" type="Control" parent="."]
+margin_top = 41.0
+margin_right = 84.0
+margin_bottom = 49.0
+
+[node name="Background2" type="ColorRect" parent="Control2"]
+margin_right = 84.0
+margin_bottom = 7.0
+
+[node name="LevelNameLabel2" type="RichTextLabel" parent="Control2/Background2"]
+margin_left = 1.0
+margin_right = 84.0
+margin_bottom = 10.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[Z] Back                     [X] Start"
+text = "[Z] Back                     [X] Start"
+scroll_active = false
