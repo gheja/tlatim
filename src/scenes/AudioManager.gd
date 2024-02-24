@@ -6,11 +6,12 @@ var sfx_player: AudioStreamPlayer = null
 var music_muted = false
 
 var sound_effects = [
-	preload("res://assets/sounds/blip9.wav"),
-	preload("res://assets/sounds/blip14.wav"),
-	preload("res://assets/sounds/blip9_short.wav"),
-	preload("res://assets/sounds/blip5_trim1.wav"),
-	preload("res://assets/sounds/blip5_trim2.wav"),
+	preload("res://assets/sounds/blip9.wav"), # 0
+	preload("res://assets/sounds/blip14.wav"), # 1
+	preload("res://assets/sounds/blip9_short.wav"), # 2
+	preload("res://assets/sounds/blip5_trim1.wav"), # 3
+	preload("res://assets/sounds/blip5_trim2.wav"), # 4
+	preload("res://assets/sounds/jingle1_chopped.wav"), # 5
 ]
 
 func _ready():

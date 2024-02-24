@@ -69,6 +69,8 @@ func check_win_lose_conditions():
 			$ScoringStartTimer.start()
 		else:
 			$ScoringStartShortTimer.start()
+		
+		AudioManager.play_sfx(5)
 		return
 	
 	if check_lose_conditions():
