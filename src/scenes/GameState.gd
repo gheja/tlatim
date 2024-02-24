@@ -14,4 +14,4 @@ var energy = 100
 var energy_max = 100
 
 var time = 50
-var time_max = 15
+var time_max = 30

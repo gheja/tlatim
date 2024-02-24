@@ -5,3 +5,5 @@ signal player_action_second
 
 signal object_completed
 signal game_won
+signal game_lost
+signal scoring_completed

@@ -1,0 +1,245 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/LevelScoringOverlay.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "continue"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Foreground2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Foreground:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Foreground2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "slide"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -47 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Foreground:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "next_phase"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Foreground2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="LevelScoringOverlay" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -756.0
+margin_bottom = -432.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Background" type="Control" parent="."]
+margin_right = 84.0
+margin_bottom = 48.0
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+margin_left = 16.0
+margin_top = 1.0
+margin_right = 66.0
+margin_bottom = 47.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Background"]
+margin_left = 17.0
+margin_top = 2.0
+margin_right = 65.0
+margin_bottom = 46.0
+
+[node name="Foreground" type="Control" parent="."]
+margin_right = 84.0
+margin_bottom = 48.0
+
+[node name="LeftText" type="RichTextLabel" parent="Foreground"]
+margin_left = 18.0
+margin_top = 2.0
+margin_right = 42.0
+margin_bottom = 25.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "Time
+Asdf
+Ffads"
+text = "Time
+Asdf
+Ffads"
+scroll_active = false
+
+[node name="RightText" type="RichTextLabel" parent="Foreground"]
+margin_left = 41.0
+margin_top = 2.0
+margin_right = 65.0
+margin_bottom = 25.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[right]19
+1234
+567
+[/right]
+"
+text = "19
+1234
+567
+
+"
+scroll_active = false
+
+[node name="TotalScoreText" type="RichTextLabel" parent="Foreground"]
+margin_left = 16.0
+margin_top = 33.0
+margin_right = 66.0
+margin_bottom = 48.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[right][b]333234[/b][/right]"
+text = "333234"
+scroll_active = false
+
+[node name="TotalText" type="RichTextLabel" parent="Foreground"]
+margin_left = 18.0
+margin_top = 28.0
+margin_right = 38.0
+margin_bottom = 35.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "Total"
+text = "Total"
+scroll_active = false
+
+[node name="PlusText" type="RichTextLabel" parent="Foreground"]
+margin_left = 32.0
+margin_top = 27.0
+margin_right = 64.0
+margin_bottom = 36.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[right]+1234[/right]"
+text = "+1234"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "slide"
+anims/continue = SubResource( 3 )
+anims/idle = SubResource( 1 )
+anims/slide = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="PhaseStartTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="ScoringCompletedTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Foreground2" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="PressXText" type="RichTextLabel" parent="Foreground2"]
+margin_left = 57.0
+margin_top = 40.0
+margin_right = 83.0
+margin_bottom = 47.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "Press  X"
+text = "Press  X"
+scroll_active = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="PhaseStartTimer" to="." method="_on_PhaseStartTimer_timeout"]
+[connection signal="timeout" from="ScoringCompletedTimer" to="." method="_on_ScoringCompletedTimer_timeout"]

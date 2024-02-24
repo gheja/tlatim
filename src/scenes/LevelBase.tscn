@@ -57,3 +57,9 @@ position = Vector2( 49, 42 )
 [node name="MainOverlay" parent="." instance=ExtResource( 8 )]
 margin_right = 0.0
 margin_bottom = 0.0
+
+[node name="ScoringStartTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="ScoringStartTimer" to="." method="_on_ScoringStartTimer_timeout"]

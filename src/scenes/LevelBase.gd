@@ -54,11 +54,13 @@ func check_win_lose_conditions():
 	if check_win_conditions():
 		GameState.state = GameState.GAME_STATE_WON
 		Signals.emit_signal("game_won")
+		$ScoringStartTimer.start()
 		return
 	
 	if check_lose_conditions():
 		GameState.state = GameState.GAME_STATE_LOST
 		Signals.emit_signal("game_lost")
+		$ScoringStartTimer.start()
 		return
 
 func on_object_completed():
@@ -81,3 +83,8 @@ func _process(_delta):
 		return
 	
 	check_win_lose_conditions()
+
+
+func _on_ScoringStartTimer_timeout():
+	var tmp = preload("res://scenes/LevelScoringOverlay.tscn").instance()
+	self.add_child(tmp)
