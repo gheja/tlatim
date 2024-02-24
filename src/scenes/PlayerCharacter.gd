@@ -102,10 +102,10 @@ func _process(_delta):
 	frame += 1
 	
 	handle_direction_buttons()
+	update_camera()
 	
 	if GameState.state == GameState.GAME_STATE_PLAYING:
 		handle_action_buttons()
-		update_camera()
 		reduce_timer()
 		increase_energy()
 	
