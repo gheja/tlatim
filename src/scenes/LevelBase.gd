@@ -103,9 +103,9 @@ func update_camera():
 func _ready():
 	$HorizontalBounds.hide()
 	$BackgroundSprite.hide()
-	Signals.connect("player_action_first", self, "on_player_action", [ 1 ])
-	Signals.connect("player_action_second", self, "on_player_action", [ 2 ])
-	Signals.connect("object_completed", self, "on_object_completed")
+	Lib.silence(Signals.connect("player_action_first", self, "on_player_action", [ 1 ]))
+	Lib.silence(Signals.connect("player_action_second", self, "on_player_action", [ 2 ]))
+	Lib.silence(Signals.connect("object_completed", self, "on_object_completed"))
 	init_dust()
 	reset_game()
 

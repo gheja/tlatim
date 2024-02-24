@@ -20,10 +20,10 @@ func increment():
 
 func _ready():
 	$AnimatedSprite.frame = 0
-	if $AnimatedSprite2:
+	if self.get_node_or_null("AnimatedSprite2"):
 		$AnimatedSprite2.play("default")
 
-func _on_Area2D_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+func _on_Area2D_area_shape_entered(_area_rid, area, _area_shape_index, _local_shape_index):
 	var other = area as Area2D
 	
 	var other_parent = other.get_parent()

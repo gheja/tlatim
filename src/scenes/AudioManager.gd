@@ -38,7 +38,7 @@ func play_sfx(index: int):
 	sfx_player.stream = sound_effects[index]
 	sfx_player.play()
 
-func on_sfx_finished():
+func on_sfx_player_finished():
 	AudioServer.set_bus_mute(1, music_muted)
 
 func toggle_music_mute():
