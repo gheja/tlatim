@@ -139,22 +139,23 @@ margin_right = 65.0
 margin_bottom = 46.0
 
 [node name="Foreground" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 84.0
 margin_bottom = 48.0
 
 [node name="LeftText" type="RichTextLabel" parent="Foreground"]
 margin_left = 18.0
 margin_top = 2.0
-margin_right = 42.0
+margin_right = 49.0
 margin_bottom = 25.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "Time
-Asdf
-Ffads"
+Energy
+Joy"
 text = "Time
-Asdf
-Ffads"
+Energy
+Joy"
 scroll_active = false
 
 [node name="RightText" type="RichTextLabel" parent="Foreground"]
@@ -226,8 +227,9 @@ one_shot = true
 one_shot = true
 
 [node name="Foreground2" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 89.0
+margin_bottom = 51.0
 
 [node name="PressXText" type="RichTextLabel" parent="Foreground2"]
 margin_left = 57.0

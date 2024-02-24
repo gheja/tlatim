@@ -1,6 +1,7 @@
 extends Node2D
 
 export var time_max = 30
+export var energy_max = 100
 export var wind = 0.33
 
 onready var player_obj = $PlayerCharacter

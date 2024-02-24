@@ -66,6 +66,10 @@ func handle_face_animation():
 		face_sprite.frame = 3
 
 func increase_energy():
+	# disabled
+	return
+	
+	
 	if frame % 3 != 0:
 		return
 	
