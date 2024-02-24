@@ -7,6 +7,7 @@ const GAME_STATE_WON = 3
 const GAME_STATE_LOST = 4
 
 var state = GAME_STATE_UNKNOWN
+var transition_active = false
 
 var wind = -0.33
 

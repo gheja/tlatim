@@ -96,6 +96,9 @@ func _ready():
 	level_base_obj = Lib.get_first_group_member("level_bases")
 
 func _process(_delta):
+	if GameState.transition_active:
+		return
+	
 	frame += 1
 	
 	handle_direction_buttons()

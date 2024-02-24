@@ -145,7 +145,7 @@ playing = true
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="."]
 position = Vector2( 73, 14 )
 frames = SubResource( 23 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
