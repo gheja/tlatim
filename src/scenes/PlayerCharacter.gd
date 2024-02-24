@@ -7,6 +7,8 @@ onready var face_sprite = $Visuals/FaceSprite
 var frame = 0
 var last_action_first_frame = null
 var last_action_second_frame = null
+var bounds_obj: Sprite = null
+var level_base_obj: Node2D = null
 
 func do_action(n: int):
 	if n == 1:
@@ -20,9 +22,11 @@ func handle_direction_buttons():
 		return
 
 	if Input.is_action_pressed("ui_left"):
-		self.position.x += -1
+		if self.position.x > bounds_obj.position.x - bounds_obj.scale.x / 2:
+			self.position.x += -1
 	elif Input.is_action_pressed("ui_right"):
-		self.position.x += 1
+		if self.position.x < bounds_obj.position.x + bounds_obj.scale.x / 2:
+			self.position.x += 1
 
 func handle_action_buttons():
 	if Input.is_action_pressed("action_first"):
@@ -77,8 +81,15 @@ func reduce_timer():
 	
 	GameState.time -= 1
 
+func update_camera():
+	# we really should not do this here but LevelBase _process() is called earlier
+	# and the movement would be choppy that way
+	level_base_obj.update_camera()
+
 func _ready():
 	GameState.state = GameState.GAME_STATE_PLAYING
+	bounds_obj = Lib.get_first_group_member("bounds")
+	level_base_obj = Lib.get_first_group_member("level_bases")
 
 func _process(_delta):
 	frame += 1
@@ -87,6 +98,7 @@ func _process(_delta):
 	
 	if GameState.state == GameState.GAME_STATE_PLAYING:
 		handle_action_buttons()
+		update_camera()
 		reduce_timer()
 		increase_energy()
 	

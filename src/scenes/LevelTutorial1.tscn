@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/TreeObject.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/LevelBase.tscn" type="PackedScene" id=6]
+
+[node name="LevelTutorial1" type="Node2D"]
+
+[node name="LevelBase" parent="." instance=ExtResource( 6 )]
+wind = 0.1
+
+[node name="PlayerCharacter" parent="LevelBase" index="1"]
+position = Vector2( 46, 10 )
+
+[node name="TreeObject" parent="LevelBase/LevelObjects" index="0" instance=ExtResource( 3 )]
+position = Vector2( 30, 34 )
+
+[node name="TreeObject3" parent="LevelBase/LevelObjects" index="1" instance=ExtResource( 3 )]
+position = Vector2( 45, 38 )
+
+[editable path="LevelBase"]

@@ -1,8 +1,14 @@
 extends Node2D
 
+export var time_max = 30
+export var wind = 0.33
+
+onready var player_obj = $PlayerCharacter
+onready var camera_obj = $CameraContainer
+onready var dust_objects = $CameraContainer/DustObjects
+
 func init_dust():
 	var tmp
-	var dust_objects = $DustObjects
 	
 	for _i in range(20):
 		tmp = preload("res://scenes/DustObject.tscn").instance()
@@ -41,7 +47,7 @@ func check_win_conditions():
 func show_popup_text(s):
 	var tmp = preload("res://scenes/PopupTextOverlay.tscn").instance()
 	tmp.set_text(s)
-	self.add_child(tmp)
+	$CameraContainer.add_child(tmp)
 
 func check_lose_conditions():
 	if GameState.time == 0:
@@ -54,13 +60,17 @@ func check_win_lose_conditions():
 	if check_win_conditions():
 		GameState.state = GameState.GAME_STATE_WON
 		Signals.emit_signal("game_won")
-		$ScoringStartTimer.start()
+		if get_tree().get_nodes_in_group("persons").size() > 0:
+			# let them jump around
+			$ScoringStartTimer.start()
+		else:
+			$ScoringStartShortTimer.start()
 		return
 	
 	if check_lose_conditions():
 		GameState.state = GameState.GAME_STATE_LOST
 		Signals.emit_signal("game_lost")
-		$ScoringStartTimer.start()
+		$ScoringStartShortTimer.start()
 		return
 
 func on_object_completed():
@@ -68,10 +78,27 @@ func on_object_completed():
 	pass
 
 func reset_game():
+	GameState.time_max = time_max
+	GameState.wind = wind
 	GameState.energy = GameState.energy_max
 	GameState.time = GameState.time_max
 
+func update_camera():
+#	while camera_obj.position.x - player_obj.position.x > 24:
+#		camera_obj.position.x -= 1
+#
+#	while camera_obj.position.x - player_obj.position.x < - 26:
+#		camera_obj.position.x += 1
+	
+	while camera_obj.position.x > player_obj.position.x - 18:
+		camera_obj.position.x -= 1
+	
+	while camera_obj.position.x < player_obj.position.x - 68:
+		camera_obj.position.x += 1
+
 func _ready():
+	$HorizontalBounds.hide()
+	$BackgroundSprite.hide()
 	Signals.connect("player_action_first", self, "on_player_action", [ 1 ])
 	Signals.connect("player_action_second", self, "on_player_action", [ 2 ])
 	Signals.connect("object_completed", self, "on_object_completed")
@@ -84,7 +111,6 @@ func _process(_delta):
 	
 	check_win_lose_conditions()
 
-
 func _on_ScoringStartTimer_timeout():
 	var tmp = preload("res://scenes/LevelScoringOverlay.tscn").instance()
-	self.add_child(tmp)
+	$CameraContainer.add_child(tmp)
