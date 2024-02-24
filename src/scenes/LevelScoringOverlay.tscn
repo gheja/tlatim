@@ -81,7 +81,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6, 1.2 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -93,7 +93,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.9 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -122,9 +122,8 @@ theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Background" type="Control" parent="."]
-margin_top = -47.0
 margin_right = 84.0
-margin_bottom = 1.0
+margin_bottom = 48.0
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
 margin_left = 16.0
@@ -140,7 +139,6 @@ margin_right = 65.0
 margin_bottom = 46.0
 
 [node name="Foreground" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 margin_right = 84.0
 margin_bottom = 48.0
 
@@ -228,19 +226,18 @@ one_shot = true
 one_shot = true
 
 [node name="Foreground2" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 margin_right = 89.0
 margin_bottom = 51.0
 
 [node name="PressXText" type="RichTextLabel" parent="Foreground2"]
-margin_left = 57.0
+margin_left = 39.0
 margin_top = 40.0
 margin_right = 83.0
 margin_bottom = 47.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
-bbcode_text = "Press  X"
-text = "Press  X"
+bbcode_text = "Continue [X]"
+text = "Continue [X]"
 scroll_active = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
