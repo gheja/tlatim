@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 Lib="*res://scenes/Lib.gd"
 Signals="*res://scenes/Signals.gd"
 GameState="*res://scenes/GameState.gd"
+AudioManager="*res://scenes/AudioManager.gd"
 
 [display]
 

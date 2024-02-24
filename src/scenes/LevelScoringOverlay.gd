@@ -32,6 +32,9 @@ func next_phase():
 func step_val(val, step_size, step_multiplier):
 	val -= step_size
 	tmp_score += step_size * step_multiplier
+	
+	AudioManager.play_sfx(3)
+	
 	return val
 
 func step_total_score(step_size):
@@ -41,6 +44,8 @@ func step_total_score(step_size):
 	else:
 		total_score += tmp_score
 		tmp_score = 0
+	
+	AudioManager.play_sfx(4)
 
 func _on_Timer_timeout():
 	if phase == 1:

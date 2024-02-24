@@ -13,11 +13,15 @@ func increment():
 	$AnimatedSprite.frame += 1
 	
 	if is_complete():
+		AudioManager.play_sfx(0)
 		Signals.emit_signal("object_completed")
+	else:
+		AudioManager.play_sfx(2)
 
 func _ready():
 	$AnimatedSprite.frame = 0
-
+	if $AnimatedSprite2:
+		$AnimatedSprite2.play("default")
 
 func _on_Area2D_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	var other = area as Area2D

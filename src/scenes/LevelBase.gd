@@ -26,6 +26,8 @@ func on_player_action(n: int):
 		$LevelObjects.add_child(tmp)
 		tmp.move_to_player()
 		
+		AudioManager.play_sfx(1)
+		
 	elif n == 2:
 		if GameState.energy < 20:
 			return
@@ -35,6 +37,8 @@ func on_player_action(n: int):
 		tmp = preload("res://scenes/LargeSnowflakeObject.tscn").instance()
 		$LevelObjects.add_child(tmp)
 		tmp.move_to_player()
+		
+		AudioManager.play_sfx(1)
 
 func check_win_conditions():
 	for obj in get_tree().get_nodes_in_group("ground_objects"):
