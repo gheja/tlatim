@@ -1,19 +1,85 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://bold_outline_theme.tres" type="Theme" id=2]
 [ext_resource path="res://scenes/TitleScene.gd" type="Script" id=3]
-[ext_resource path="res://assets/sprites/title_background.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/title_intro_animation.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 588, 0, 84, 48 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 588, 0, 84, 48 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 672, 0, 84, 48 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 84, 48 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 4 )
+region = Rect2( 84, 0, 84, 48 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 4 )
+region = Rect2( 168, 0, 84, 48 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 4 )
+region = Rect2( 252, 0, 84, 48 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 4 )
+region = Rect2( 336, 0, 84, 48 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 4 )
+region = Rect2( 420, 0, 84, 48 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 4 )
+region = Rect2( 504, 0, 84, 48 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 4 )
+region = Rect2( 588, 0, 84, 48 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 4 )
+region = Rect2( 672, 0, 84, 48 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "loop",
+"speed": 1.5
+}, {
+"frames": [ SubResource( 14 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"loop": true,
+"name": "start",
+"speed": 1.5
+} ]
 
 [node name="TitleScene" type="Control"]
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="IntroAnimation" type="AnimatedSprite" parent="."]
 position = Vector2( 42, 24 )
-texture = ExtResource( 4 )
+frames = SubResource( 13 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="TitleLabel" type="RichTextLabel" parent="."]
 margin_left = 2.0
 margin_top = 1.0
 margin_right = 82.0
@@ -62,12 +128,11 @@ scroll_active = false
 
 [node name="CreditsTimer" type="Timer" parent="."]
 wait_time = 1.5
-autostart = true
 
 [node name="ShowStartTimer" type="Timer" parent="."]
 wait_time = 7.5
 one_shot = true
-autostart = true
 
+[connection signal="animation_finished" from="IntroAnimation" to="." method="_on_IntroAnimation_animation_finished"]
 [connection signal="timeout" from="CreditsTimer" to="." method="_on_CreditsTimer_timeout"]
 [connection signal="timeout" from="ShowStartTimer" to="." method="_on_ShowStartTimer_timeout"]

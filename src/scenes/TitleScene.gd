@@ -21,11 +21,21 @@ func step_credits():
 
 func _ready():
 	AudioManager.play_music(6)
-	step_credits()
 	$StartButtonOverlay.hide()
+	$IntroAnimation.play("start")
+	$CreditsLabel.bbcode_text = ""
+	$TitleLabel.hide()
 
 func _on_CreditsTimer_timeout():
 	step_credits()
 
 func _on_ShowStartTimer_timeout():
 	$StartButtonOverlay.show()
+
+func _on_IntroAnimation_animation_finished():
+	if $IntroAnimation.animation == "start":
+		$IntroAnimation.play("loop")
+		$TitleLabel.show()
+		$CreditsTimer.start()
+		# $ShowStartTimer.start()
+		$StartButtonOverlay.show()
