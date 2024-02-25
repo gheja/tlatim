@@ -123,6 +123,8 @@ func _ready():
 	Lib.silence(Signals.connect("object_completed", self, "on_object_completed"))
 	init_dust()
 	reset_game()
+	
+	AudioManager.play_music(7)
 
 func _process(_delta):
 	if GameState.state != GameState.GAME_STATE_PLAYING:

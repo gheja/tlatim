@@ -8,7 +8,7 @@ var tmp_score = 0
 var total_score = 0
 
 var phase = 0
-var finished = false
+var scoring_completed = false
 
 func _process(_delta):
 	$Foreground/RightText.bbcode_text = "[right]" + str(val1) + "\n" + str(val2) + "\n" + str(val3) + "\n[/right]" 
@@ -27,8 +27,7 @@ func next_phase():
 	$Timer.stop()
 	
 	if phase == 6:
-		check_and_handle_high_score()
-		$ScoringCompletedTimer.start()
+		on_scoring_completed()
 		return
 	
 	phase += 1
@@ -110,16 +109,25 @@ func start(val_time, val_energy, val_joy):
 	tmp_score = 0
 	total_score = 0
 
+func start_scoring():
+	AudioManager.set_music_temp_mute(true)
+	next_phase()
+
+func on_scoring_completed():
+	check_and_handle_high_score()
+	$ScoringCompletedTimer.start()
+	AudioManager.set_music_temp_mute(false)
+	Signals.emit_signal("scoring_completed")
+	scoring_completed = true
+
 func _on_PhaseStartTimer_timeout():
 	$Timer.start()
 
 func _on_ScoringCompletedTimer_timeout():
-	finished = true
 	$AnimationPlayer.play("continue")
-	Signals.emit_signal("scoring_completed")
 
 func _unhandled_input(event):
-	if not finished:
+	if not scoring_completed:
 		return
 	
 	if event.is_action_pressed("action_first") or event.is_action_pressed("action_second"):

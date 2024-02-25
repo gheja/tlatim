@@ -35,6 +35,8 @@ func _ready():
 	$Control/LevelListWindow/LevelNameLabel.bbcode_text = s
 	$Control/LevelListWindow/PointsLabel.bbcode_text = t
 	
+	AudioManager.play_music(6)
+	
 	update_level_window()
 
 func update_level_window():

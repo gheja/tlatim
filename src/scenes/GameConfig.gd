@@ -31,7 +31,7 @@ func get_score(key: String):
 	if err != OK:
 		return null
 	
-	return config.get_value("scores", "level:" + key, null)
+	return config.get_value("scores", "level:" + key, 0)
 
 func set_score(key: String, score: int):
 	var config = ConfigFile.new()
