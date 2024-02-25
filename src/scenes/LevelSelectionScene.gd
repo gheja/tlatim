@@ -6,7 +6,7 @@ var level_list = [
 	[ "Tutorial 1", "tutorial1", "res://scenes/LevelTutorial1.tscn" ],
 	[ "Tutorial 2", "tutorial2", "res://scenes/LevelTutorial2.tscn" ],
 	[ "Level 1", "level1", "res://scenes/Level1.tscn" ],
-	[ "Level 2", "", "res://scenes/Level1.tscn" ],
+	[ "Level 2", "level2", "res://scenes/Level2.tscn" ],
 	[ "Level 3", "", "res://scenes/Level1.tscn" ],
 ]
 
