@@ -17,3 +17,7 @@ var energy_max = 100
 
 var time = 50
 var time_max = 30
+
+# will be read and written by LevelSelectionScene
+var level_index_last = 0
+var level_index_max = -1

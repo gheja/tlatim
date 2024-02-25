@@ -37,6 +37,9 @@ func _ready():
 	
 	AudioManager.play_music(6)
 	
+	GameState.level_index_max = level_list.size() - 1
+	level_index = GameState.level_index_last
+	
 	update_level_window()
 
 func update_level_window():
@@ -63,5 +66,7 @@ func _unhandled_input(event):
 	
 	if level_index >= level_list.size():
 		level_index = level_list.size() - 1
+	
+	GameState.level_index_last = level_index
 	
 	update_level_window()
