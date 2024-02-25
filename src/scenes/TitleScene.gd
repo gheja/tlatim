@@ -21,10 +21,18 @@ func step_credits():
 
 func _ready():
 	AudioManager.play_music(6)
-	$StartButtonOverlay.hide()
-	$IntroAnimation.play("start")
-	$CreditsLabel.bbcode_text = ""
-	$TitleLabel.hide()
+	
+	if not GameState.intro_played:
+		$StartButtonOverlay.hide()
+		$IntroAnimation.play("start")
+		$CreditsLabel.bbcode_text = ""
+		$TitleLabel.hide()
+		GameState.intro_played = true
+	else:
+		$IntroAnimation.play("loop")
+		$CreditsTimer.start()
+		$StartButtonOverlay.show()
+		step_credits()
 
 func _on_CreditsTimer_timeout():
 	step_credits()
@@ -34,5 +42,5 @@ func _on_IntroAnimation_animation_finished():
 		$IntroAnimation.play("loop")
 		$TitleLabel.show()
 		$CreditsTimer.start()
-		# $ShowStartTimer.start()
+		step_credits()
 		$StartButtonOverlay.show()
