@@ -21,9 +21,9 @@ margin_bottom = 30.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "[wave amp=16.0 freq=1.75
-][b]Titleeeeee[/b][/wave]
+][b]Tlatim![/b][/wave]
 "
-text = "Titleeeeee
+text = "Tlatim!
 "
 scroll_active = false
 
