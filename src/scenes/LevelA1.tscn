@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/HouseObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/PowerupEnergy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/TreeObject.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/SnowmanObject.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/LevelBase.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/PersonBigObject.tscn" type="PackedScene" id=7]
+
+[node name="LevelA1" type="Node2D"]
+
+[node name="LevelBase" parent="." instance=ExtResource( 6 )]
+level_key = "levela1"
+time_max = 25
+wind = -0.33
+wind_changes = [ 18.0, -0.1, 17.0, 0.1, 16.0, 0.33 ]
+
+[node name="PlayerCharacter" parent="LevelBase" index="2"]
+position = Vector2( 46, 10 )
+
+[node name="TreeObject4" parent="LevelBase/LevelObjects" index="0" instance=ExtResource( 3 )]
+position = Vector2( 73, 26 )
+
+[node name="TreeObject5" parent="LevelBase/LevelObjects" index="1" instance=ExtResource( 3 )]
+position = Vector2( 84, 36 )
+
+[node name="HouseObject2" parent="LevelBase/LevelObjects" index="2" instance=ExtResource( 1 )]
+position = Vector2( 10, 32 )
+
+[node name="SnowmanObject" parent="LevelBase/LevelObjects" index="3" instance=ExtResource( 4 )]
+position = Vector2( 36, 32 )
+
+[node name="SnowmanObject3" parent="LevelBase/LevelObjects" index="4" instance=ExtResource( 4 )]
+position = Vector2( 47, 36 )
+
+[node name="SnowmanObject2" parent="LevelBase/LevelObjects" index="5" instance=ExtResource( 4 )]
+position = Vector2( 26, 39 )
+scale = Vector2( -1, 1 )
+
+[node name="PersonBigObject" parent="LevelBase/LevelObjects" index="6" instance=ExtResource( 7 )]
+position = Vector2( 40, 42 )
+
+[node name="PowerupEnergy" parent="LevelBase/LevelObjects" index="7" instance=ExtResource( 2 )]
+position = Vector2( 64, 40 )
+
+[node name="HorizontalBounds" parent="LevelBase" index="4"]
+position = Vector2( 37, 0 )
+scale = Vector2( 80, 1 )
+
+[editable path="LevelBase"]

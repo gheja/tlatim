@@ -8,6 +8,7 @@ var level_list = [
 	[ "Level 1", "level1", "res://scenes/Level1.tscn" ],
 	[ "Level 2", "level2", "res://scenes/Level2.tscn" ],
 	[ "Level 3", "level3", "res://scenes/Level3.tscn" ],
+	[ "Level 4", "levela1", "res://scenes/LevelA1.tscn" ],
 ]
 
 func _ready():
