@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/main_based_on_gossiping_by_avgvsta_on_opengameart.ogg-4094d5e1aeb69027dc4fb6256fbe3bc4.oggstr"
+
+[deps]
+
+source_file="res://assets/music/main_based_on_gossiping_by_avgvsta_on_opengameart.ogg"
+dest_files=[ "res://.import/main_based_on_gossiping_by_avgvsta_on_opengameart.ogg-4094d5e1aeb69027dc4fb6256fbe3bc4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

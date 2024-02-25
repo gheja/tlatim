@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/intro_based_on_valentine_1_by_avgvsta_on_opengameart.ogg-3eaeb63955b6014e1e9e42c8ac56aedc.oggstr"
+
+[deps]
+
+source_file="res://assets/music/intro_based_on_valentine_1_by_avgvsta_on_opengameart.ogg"
+dest_files=[ "res://.import/intro_based_on_valentine_1_by_avgvsta_on_opengameart.ogg-3eaeb63955b6014e1e9e42c8ac56aedc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
