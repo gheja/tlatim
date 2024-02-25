@@ -20,3 +20,6 @@ func _process(_delta):
 	
 	self.position.y = int(pos_y)
 	self.position.x = int(pos_x)
+	
+	if self.position.y >= 52:
+		self.queue_free()

@@ -60,6 +60,10 @@ func check_lose_conditions():
 		show_popup_text("Time is up!")
 		return true
 	
+	if GameState.energy == 0 and get_tree().get_nodes_in_group("small_snowflakes").size() == 0 and get_tree().get_nodes_in_group("large_snowflakes").size() == 0:
+		show_popup_text("Out of energy!")
+		return true
+	
 	return false
 
 func check_win_lose_conditions():
@@ -78,7 +82,8 @@ func check_win_lose_conditions():
 	if check_lose_conditions():
 		GameState.state = GameState.GAME_STATE_LOST
 		Signals.emit_signal("game_lost")
-		$ScoringStartShortTimer.start()
+		# $ScoringStartShortTimer.start()
+		$ReturnToLevelSelectorTimer.start();
 		return
 
 func on_object_completed():
@@ -136,3 +141,6 @@ func _on_ScoringStartTimer_timeout():
 	var tmp = preload("res://scenes/LevelScoringOverlay.tscn").instance()
 	$CameraContainer.add_child(tmp)
 	tmp.start(GameState.time, GameState.energy, get_tree().get_nodes_in_group("persons").size())
+
+func _on_ReturnToLevelSelectorTimer_timeout():
+	Signals.emit_signal("switch_to_level_selection")
