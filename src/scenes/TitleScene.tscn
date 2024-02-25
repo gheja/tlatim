@@ -129,10 +129,5 @@ scroll_active = false
 [node name="CreditsTimer" type="Timer" parent="."]
 wait_time = 1.5
 
-[node name="ShowStartTimer" type="Timer" parent="."]
-wait_time = 7.5
-one_shot = true
-
 [connection signal="animation_finished" from="IntroAnimation" to="." method="_on_IntroAnimation_animation_finished"]
 [connection signal="timeout" from="CreditsTimer" to="." method="_on_CreditsTimer_timeout"]
-[connection signal="timeout" from="ShowStartTimer" to="." method="_on_ShowStartTimer_timeout"]

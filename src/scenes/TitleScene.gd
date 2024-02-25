@@ -29,9 +29,6 @@ func _ready():
 func _on_CreditsTimer_timeout():
 	step_credits()
 
-func _on_ShowStartTimer_timeout():
-	$StartButtonOverlay.show()
-
 func _on_IntroAnimation_animation_finished():
 	if $IntroAnimation.animation == "start":
 		$IntroAnimation.play("loop")
