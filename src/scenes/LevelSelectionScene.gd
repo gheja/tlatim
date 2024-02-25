@@ -15,7 +15,7 @@ func _ready():
 	var t
 	var a
 	
-	$Control/ArrowSprite.rect_position.y = 12
+	$Control/ArrowSprite.rect_position.y = 10
 	
 	s = ""
 	t = "[right]"
@@ -43,7 +43,7 @@ func _ready():
 	update_level_window()
 
 func update_level_window():
-	$Control/LevelListWindow.rect_position.y = 12 - level_index * 8
+	$Control/LevelListWindow.rect_position.y = 10 - level_index * 8
 
 func back_to_title():
 	Signals.emit_signal("switch_to_title")

@@ -55,8 +55,8 @@ text = " Tutorial  1
  Level  4"
 
 [node name="PointsLabel" type="RichTextLabel" parent="Control/LevelListWindow"]
-margin_left = 32.0
-margin_right = 77.0
+margin_left = 25.0
+margin_right = 70.0
 margin_bottom = 51.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true

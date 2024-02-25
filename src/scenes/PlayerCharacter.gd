@@ -49,7 +49,11 @@ func handle_action_buttons():
 
 func handle_face_animation():
 	if GameState.state == GameState.GAME_STATE_WON:
-		face_sprite.frame = 4
+		face_sprite.frame = 5
+		return
+	
+	if GameState.state == GameState.GAME_STATE_LOST:
+		face_sprite.frame = 6
 		return
 	
 	# the second action is active
