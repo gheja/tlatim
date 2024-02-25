@@ -11,7 +11,7 @@ var credits_texts = [
 var credits_index = -1
 
 func _unhandled_input(event):
-	if event.is_action_pressed("action_first") or event.is_action_pressed("action_second"):
+	if event.is_action_pressed("action_right"):
 		Signals.emit_signal("switch_to_level_selection")
 
 func step_credits():

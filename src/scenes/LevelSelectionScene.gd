@@ -56,9 +56,9 @@ func _unhandled_input(event):
 		level_index += 1
 	elif event.is_action_pressed("ui_up"):
 		level_index -= 1
-	elif event.is_action_pressed("action_first"):
+	elif event.is_action_pressed("action_left"):
 		back_to_title()
-	elif event.is_action_pressed("action_second"):
+	elif event.is_action_pressed("action_right"):
 		start_level()
 	
 	if level_index < 0:

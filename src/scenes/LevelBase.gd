@@ -123,8 +123,8 @@ func _ready():
 	
 	$HorizontalBounds.hide()
 	$BackgroundSprite.hide()
-	Lib.silence(Signals.connect("player_action_first", self, "on_player_action", [ 1 ]))
-	Lib.silence(Signals.connect("player_action_second", self, "on_player_action", [ 2 ]))
+	Lib.silence(Signals.connect("player_action_left", self, "on_player_action", [ 1 ]))
+	Lib.silence(Signals.connect("player_action_right", self, "on_player_action", [ 2 ]))
 	Lib.silence(Signals.connect("object_completed", self, "on_object_completed"))
 	init_dust()
 	reset_game()
