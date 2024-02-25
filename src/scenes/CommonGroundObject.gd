@@ -37,7 +37,6 @@ func _on_Area2D_area_shape_entered(_area_rid, area, _area_shape_index, _local_sh
 	elif other_parent.is_in_group("large_snowflakes"):
 		increment()
 		increment()
-		increment()
 		other_parent.queue_free()
 	
 	if is_complete():

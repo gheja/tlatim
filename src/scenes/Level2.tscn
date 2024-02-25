@@ -14,28 +14,25 @@ level_key = "level2"
 position = Vector2( 46, 10 )
 
 [node name="TreeObject4" parent="LevelBase/LevelObjects" index="0" instance=ExtResource( 3 )]
-position = Vector2( 86, 28 )
+position = Vector2( 75, 28 )
 
 [node name="TreeObject" parent="LevelBase/LevelObjects" index="1" instance=ExtResource( 3 )]
-position = Vector2( 79, 35 )
+position = Vector2( 70, 36 )
 
 [node name="TreeObject2" parent="LevelBase/LevelObjects" index="2" instance=ExtResource( 3 )]
-position = Vector2( 84, 41 )
+position = Vector2( -1, 37 )
 
 [node name="TreeObject3" parent="LevelBase/LevelObjects" index="3" instance=ExtResource( 3 )]
-position = Vector2( 71, 39 )
+position = Vector2( 61, 39 )
 
-[node name="HouseObject" parent="LevelBase/LevelObjects" index="4" instance=ExtResource( 1 )]
-position = Vector2( 1, 36 )
+[node name="HouseObject2" parent="LevelBase/LevelObjects" index="4" instance=ExtResource( 1 )]
+position = Vector2( 15, 35 )
 
-[node name="HouseObject2" parent="LevelBase/LevelObjects" index="5" instance=ExtResource( 1 )]
-position = Vector2( 50, 32 )
-
-[node name="PowerupEnergy" parent="LevelBase/LevelObjects" index="6" instance=ExtResource( 2 )]
-position = Vector2( 26, 41 )
+[node name="PowerupEnergy" parent="LevelBase/LevelObjects" index="5" instance=ExtResource( 2 )]
+position = Vector2( 43, 41 )
 
 [node name="HorizontalBounds" parent="LevelBase" index="4"]
-position = Vector2( 35.5, 0 )
-scale = Vector2( 107, 1 )
+position = Vector2( 37.5, 0 )
+scale = Vector2( 103, 1 )
 
 [editable path="LevelBase"]
