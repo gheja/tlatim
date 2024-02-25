@@ -87,6 +87,8 @@ func reduce_timer():
 	if GameState.time <= 0:
 		return
 	
+	Signals.emit_signal("time_changed")
+	
 	GameState.time -= 1
 
 func update_camera():

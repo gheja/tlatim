@@ -13,3 +13,4 @@ signal switch_to_level_selection
 signal switch_to_level
 
 signal do_the_actual_transition
+signal time_changed

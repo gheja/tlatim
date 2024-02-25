@@ -4,6 +4,7 @@ export var level_key = "unknown"
 export var time_max = 30
 export var energy_max = 100
 export var wind = 0.33
+export(Array, float) var wind_changes = [ ]
 
 onready var player_obj = $PlayerCharacter
 onready var camera_obj = $CameraContainer
@@ -126,6 +127,7 @@ func _ready():
 	Lib.silence(Signals.connect("player_action_left", self, "on_player_action", [ 1 ]))
 	Lib.silence(Signals.connect("player_action_right", self, "on_player_action", [ 2 ]))
 	Lib.silence(Signals.connect("object_completed", self, "on_object_completed"))
+	Lib.silence(Signals.connect("time_changed", self, "on_time_changed"))
 	init_dust()
 	reset_game()
 	
@@ -144,3 +146,8 @@ func _on_ScoringStartTimer_timeout():
 
 func _on_ReturnToLevelSelectorTimer_timeout():
 	Signals.emit_signal("switch_to_level_selection")
+
+func on_time_changed():
+	for i in range(wind_changes.size() / 2):
+		if int(GameState.time) == int(wind_changes[i * 2]):
+			GameState.wind = wind_changes[i * 2 + 1]
