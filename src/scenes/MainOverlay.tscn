@@ -25,10 +25,11 @@ text = " 19"
 scroll_active = false
 
 [node name="EnergyBar" type="TextureProgress" parent="."]
-margin_left = 71.0
-margin_right = 84.0
+margin_left = 61.0
+margin_top = 1.0
+margin_right = 83.0
 margin_bottom = 7.0
-value = 100.0
+value = 25.0
 rounded = true
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 2 )
