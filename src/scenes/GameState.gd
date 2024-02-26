@@ -10,6 +10,8 @@ var state = GAME_STATE_UNKNOWN
 var transition_active = false
 var current_level_key = "unknown"
 var intro_played = false
+# player hit an object that they should not have hit
+var oops_happened = false
 
 var wind = -0.33
 

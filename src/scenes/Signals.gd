@@ -7,6 +7,7 @@ signal object_completed
 signal game_won
 signal game_lost
 signal scoring_completed
+signal oops
 
 signal switch_to_title
 signal switch_to_level_selection

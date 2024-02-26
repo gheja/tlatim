@@ -65,6 +65,10 @@ func check_lose_conditions():
 		show_popup_text("Out of energy!")
 		return true
 	
+	if GameState.oops_happened:
+		show_popup_text("Oops...")
+		return true
+	
 	return false
 
 func check_win_lose_conditions():
@@ -100,6 +104,7 @@ func reset_game():
 	GameState.energy = GameState.energy_max
 	GameState.time = GameState.time_max
 	GameState.current_level_key = level_key
+	GameState.oops_happened = false
 
 func update_camera():
 #	while camera_obj.position.x - player_obj.position.x > 24:
@@ -128,6 +133,7 @@ func _ready():
 	Lib.silence(Signals.connect("player_action_right", self, "on_player_action", [ 2 ]))
 	Lib.silence(Signals.connect("object_completed", self, "on_object_completed"))
 	Lib.silence(Signals.connect("time_changed", self, "on_time_changed"))
+	Lib.silence(Signals.connect("oops", self, "on_oops"))
 	init_dust()
 	reset_game()
 	
@@ -151,3 +157,6 @@ func on_time_changed():
 	for i in range(wind_changes.size() / 2):
 		if int(GameState.time) == int(wind_changes[i * 2]):
 			GameState.wind = wind_changes[i * 2 + 1]
+
+func on_oops():
+	GameState.oops_happened = true
