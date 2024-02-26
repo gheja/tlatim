@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/HouseObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/PowerupEnergy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/TreeObject.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/SnowmanObject.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/PersonSmallObject.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/LevelBase.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/PersonBigObject.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/BigfootObject.tscn" type="PackedScene" id=8]
+
+[node name="LevelA3" type="Node2D"]
+
+[node name="LevelBase" parent="." instance=ExtResource( 6 )]
+level_key = "levela3"
+time_max = 35
+wind = -0.2
+
+[node name="PlayerCharacter" parent="LevelBase" index="2"]
+position = Vector2( 46, 10 )
+
+[node name="TreeObject7" parent="LevelBase/LevelObjects" index="0" instance=ExtResource( 3 )]
+position = Vector2( 72, 23 )
+
+[node name="TreeObject5" parent="LevelBase/LevelObjects" index="1" instance=ExtResource( 3 )]
+position = Vector2( 64, 28 )
+
+[node name="TreeObject8" parent="LevelBase/LevelObjects" index="2" instance=ExtResource( 3 )]
+position = Vector2( 12, 25 )
+
+[node name="TreeObject9" parent="LevelBase/LevelObjects" index="3" instance=ExtResource( 3 )]
+position = Vector2( 6, 34 )
+
+[node name="HouseObject2" parent="LevelBase/LevelObjects" index="4" instance=ExtResource( 1 )]
+position = Vector2( 98, 29 )
+
+[node name="SnowmanObject2" parent="LevelBase/LevelObjects" index="5" instance=ExtResource( 4 )]
+position = Vector2( 82, 33 )
+scale = Vector2( -1, 1 )
+
+[node name="SnowmanObject3" parent="LevelBase/LevelObjects" index="6" instance=ExtResource( 4 )]
+position = Vector2( -8, 32 )
+scale = Vector2( -1, 1 )
+
+[node name="PersonBigObject" parent="LevelBase/LevelObjects" index="7" instance=ExtResource( 7 )]
+position = Vector2( 86, 42 )
+
+[node name="PersonSmallObject2" parent="LevelBase/LevelObjects" index="8" instance=ExtResource( 5 )]
+position = Vector2( 73, 38 )
+
+[node name="PersonSmallObject3" parent="LevelBase/LevelObjects" index="9" instance=ExtResource( 5 )]
+position = Vector2( -13, 41 )
+
+[node name="PersonSmallObject4" parent="LevelBase/LevelObjects" index="10" instance=ExtResource( 5 )]
+position = Vector2( -19, 32 )
+
+[node name="BigfootObject" parent="LevelBase/LevelObjects" index="11" instance=ExtResource( 8 )]
+position = Vector2( 55, 34 )
+
+[node name="TreeObject4" parent="LevelBase/LevelObjects" index="12" instance=ExtResource( 3 )]
+position = Vector2( 19, 31 )
+
+[node name="TreeObject6" parent="LevelBase/LevelObjects" index="13" instance=ExtResource( 3 )]
+position = Vector2( 55, 32 )
+
+[node name="PowerupEnergy" parent="LevelBase/LevelObjects" index="14" instance=ExtResource( 2 )]
+position = Vector2( 33, 39 )
+
+[node name="Position2D" type="Position2D" parent="LevelBase/LevelObjects" index="15" groups=["bigfoot_targets"]]
+position = Vector2( 19, 34 )
+
+[node name="Position2D2" type="Position2D" parent="LevelBase/LevelObjects" index="16" groups=["bigfoot_targets"]]
+position = Vector2( 55, 34 )
+
+[node name="HorizontalBounds" parent="LevelBase" index="4"]
+position = Vector2( 44, 0 )
+scale = Vector2( 140, 1 )
+
+[editable path="LevelBase"]
