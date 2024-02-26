@@ -11,6 +11,9 @@ func _process(_delta):
 func _on_Area2D_area_shape_entered(_area_rid, area, _area_shape_index, _local_shape_index):
 	var other = area as Area2D
 	
+	if not self.visible:
+		return
+	
 	var other_parent = other.get_parent()
 	
 	if not other_parent:
