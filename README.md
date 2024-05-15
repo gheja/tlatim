@@ -24,7 +24,7 @@ Tlatim!, an entry for the [NOKIA 3310 JAM 6](https://itch.io/jam/nokiajam6).
 
 The game is made in Godot, using the great template by [Trix on the Nokia 3310 Jam Resources](https://phillipp.itch.io/nokiajamresources)
 
-Full source code will be available on GitHub: https://gheja.itch.io/tlatim
+Full source code will be available on GitHub: https://github.com/gheja/tlatim
 
 ### Hints
 
